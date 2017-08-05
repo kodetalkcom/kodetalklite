@@ -1,16 +1,21 @@
 package com.kodetalk;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,11 +51,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-            String data = getIntent().getDataString();
-            if(Intent.ACTION_VIEW.equals(getIntent().getAction())) {
-                webView.loadUrl(data);
-            } else {
-                webView.loadUrl("https://www.kodetalk.com/home");
+            if(!checkIfInternetConnectionThere(getApplicationContext())){
+                webView.loadUrl("about:blank");
+                Toast.makeText(getBaseContext(), "Internet is not avialable", Toast.LENGTH_SHORT).show();
+            }else {
+                String data = getIntent().getDataString();
+                if (Intent.ACTION_VIEW.equals(getIntent().getAction())) {
+                    webView.loadUrl(data);
+                } else {
+                    webView.loadUrl("https://www.kodetalk.com/home");
+                }
             }
         }
     }
@@ -72,6 +82,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onPageFinished(WebView v, String url) {
             super.onPageFinished(v, url);
+        }
+    }
+
+    public boolean checkIfInternetConnectionThere(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager.getActiveNetworkInfo() != null
+                && connectivityManager.getActiveNetworkInfo().isAvailable()
+                && connectivityManager.getActiveNetworkInfo().isConnected()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
