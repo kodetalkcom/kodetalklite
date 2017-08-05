@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             if(!checkIfInternetConnectionThere(getApplicationContext())){
-                webView.loadUrl("about:blank");
-                Toast.makeText(getBaseContext(), "Internet is not avialable", Toast.LENGTH_SHORT).show();
+                makeAToast();
             }else {
                 String data = getIntent().getDataString();
                 if (Intent.ACTION_VIEW.equals(getIntent().getAction())) {
@@ -83,6 +82,17 @@ public class MainActivity extends AppCompatActivity {
         public void onPageFinished(WebView v, String url) {
             super.onPageFinished(v, url);
         }
+
+        @Override
+        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+            super.onReceivedError(view, errorCode, description, failingUrl);
+            makeAToast();
+        }
+    }
+
+    public void makeAToast() {
+        webView.loadUrl("about:blank");
+        Toast.makeText(getBaseContext(), "Internet connection is not avialable", Toast.LENGTH_SHORT).show();
     }
 
     public boolean checkIfInternetConnectionThere(Context context) {
