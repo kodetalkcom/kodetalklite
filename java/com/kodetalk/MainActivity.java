@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             webView.getSettings().setBuiltInZoomControls(false);
             webView.getSettings().setLoadWithOverviewMode(false);
             webView.getSettings().setUseWideViewPort(true);
+            webView.getSettings().setDomStorageEnabled(true);
             webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
             webView.setBackgroundColor(Color.WHITE);
             webView.setWebViewClient(new ourViewClient());
