@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
             webView.setWebChromeClient(new WebChromeClient(){
                 public void onProgressChanged(WebView webView, int progress) {
                     progressBar.setProgress(progress);
+                    progressBar.getProgressDrawable()
+                            .setColorFilter(Color.parseColor("#283653"),android.graphics.PorterDuff.Mode.MULTIPLY);
                     if(progress < 100 && progressBar.getVisibility() == ProgressBar.GONE) {
                         progressBar.setVisibility(ProgressBar.VISIBLE);
                     }
