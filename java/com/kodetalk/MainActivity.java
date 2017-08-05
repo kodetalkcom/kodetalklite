@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void makeAToast() {
         webView.loadUrl("about:blank");
-        Toast.makeText(getBaseContext(), "Internet connection is not avialable", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getBaseContext(), "Internet connection is not available", Toast.LENGTH_SHORT).show();
     }
 
     public boolean checkIfInternetConnectionThere(Context context) {
