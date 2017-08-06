@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
             webView.setBackgroundColor(Color.WHITE);
             webView.setWebViewClient(new ourViewClient());
-            webView.setWebChromeClient(new PQChromeClient());
+            webView.setWebChromeClient(new KTChromeClient());
             if (!checkIfInternetConnectionThere(getApplicationContext())) {
                 makeAToast();
             } else {
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public class PQChromeClient extends WebChromeClient {
+    public class KTChromeClient extends WebChromeClient {
 
         public void onProgressChanged(WebView webView, int progress) {
             progressBar.setProgress(progress);
