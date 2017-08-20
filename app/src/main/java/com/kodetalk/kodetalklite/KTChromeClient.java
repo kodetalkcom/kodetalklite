@@ -1,4 +1,4 @@
-package com.kodetalk;
+package com.kodetalk.kodetalklite;
 
 import android.graphics.Color;
 import android.webkit.WebChromeClient;
