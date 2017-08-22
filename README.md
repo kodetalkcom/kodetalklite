@@ -6,5 +6,5 @@ Kodetalk a platform to enhance your technical skills through an interactive appr
 To convert a mobile compactable website to native android application using WebView feature.
 
 # Issues fixed
-Added fix for enabling localStorage which is HTML5 feature.
+Added fix for enabling localStorage which is HTML5 feature. <br/>
 Fix for accessing Gallery of device from WebView.
