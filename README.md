@@ -5,4 +5,7 @@ Kodetalk a platform to enhance your technical skills through an interactive appr
 # Key features
 Render web page as native view. <br/>
 Enabling localStorage which is HTML5 feature. <br/>
-Fix for accessing Gallery of device from WebView.
+Fix for accessing Gallery of device from WebView. <br/>
+Javascript enabling <br/>
+Disable lanscape view mode <br/>
+Caching resource enabled.
